@@ -7,7 +7,7 @@ const modalBackground = document.getElementById("modal-background");
 
 // variables
 let userText = "";
-let errorCount = 1;
+let errorCount = 0;
 let startTime;
 let questionText = "";
 
@@ -25,8 +25,11 @@ const typeController = (e) => {
 
   // Handle backspace press
   if (newLetter == "Backspace") {
+    errorCount++;
     userText = userText.slice(0, userText.length - 1);
+ 
     return display.removeChild(display.lastChild);
+    
   }
 
   // these are the valid character we are allowing to type
@@ -59,6 +62,7 @@ const validate = (key) => {
     return true;
   }
   return false;
+  
 };
 
 // FINISHED TYPING
@@ -67,7 +71,7 @@ const gameOver = () => {
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = (finishTime - startTime) / 1000;
+  const timeTaken = (finishTime - startTime ) / 1000;
 
   // show result modal
   resultModal.innerHTML = "";
@@ -85,12 +89,12 @@ const gameOver = () => {
     <button onclick="closeModal()">Close</button>
   `;
 
-  addHistory(questionText, timeTaken, errorCount);
+  addHistory(questionText, timeTaken, errorCount );
 
   // restart everything
   
   startTime = null;
-  errorCount = 1;
+  errorCount = 0;
   userText = "";
   display.classList.add("inactive");
 };
@@ -134,8 +138,8 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
+  const timeSpent = (currentTime - startTime)  / 1000;
 
 
-  document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
+  document.getElementById("show-time").innerHTML = `${startTime  ?  timeSpent  : 0} seconds`;
 }, 1000);
