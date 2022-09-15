@@ -7,7 +7,7 @@ const modalBackground = document.getElementById("modal-background");
 
 // variables
 let userText = "";
-let errorCount = 0;
+let errorCount = 1;
 let startTime;
 let questionText = "";
 
@@ -90,7 +90,7 @@ const gameOver = () => {
   // restart everything
   
   startTime = null;
-  errorCount = 0;
+  errorCount = 1;
   userText = "";
   display.classList.add("inactive");
 };
