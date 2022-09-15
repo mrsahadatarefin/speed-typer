@@ -88,6 +88,7 @@ const gameOver = () => {
   addHistory(questionText, timeTaken, errorCount);
 
   // restart everything
+  
   startTime = null;
   errorCount = 0;
   userText = "";
@@ -107,7 +108,7 @@ const start = () => {
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
-    countdownOverlay.innerHTML = '<h1>${count}</h1>';
+    countdownOverlay.innerHTML = `<h1>${count}</h1>`;
 
     // finished timer
     if (count == 0) {
