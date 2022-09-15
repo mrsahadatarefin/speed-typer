@@ -149,12 +149,21 @@ button {
 }
 
 .card {
-  width: 100%;
+
+
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  /* row-gap: 20px;
+  height: 500px;
+  width: 300px; */
+  justify-items: center;
+  width: 30%;
   height: 100%;
-  padding: 50px;
+ column-gap: 10px;
+  
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* justify-content: space-between; */
+  /* align-items: center; */
   padding: 20px 30px;
   color: white;
   border-radius: 15px;
